@@ -6,9 +6,10 @@ interface IData{
   id:number
   addMessage:(str:string)=>void
   toggleHistory:()=>void
+  toggleUserData:()=>void
 }
 
-const Input = ({jwt,addMessage,toggleHistory,id}:IData) => {
+const Input = ({jwt,addMessage,toggleHistory,toggleUserData,id}:IData) => {
 
   const [text,setText] = useState('')
 
@@ -47,7 +48,7 @@ const Input = ({jwt,addMessage,toggleHistory,id}:IData) => {
           <button className='bg-slate-400 w-1/2 p-1 m-1 rounded-xl border border-gray-900' onClick={()=>{toggleHistory()}}>
             История сообщений
           </button>
-          <button className='bg-slate-400 w-1/2 p-1 m-1 rounded-xl border border-gray-900'>
+          <button className='bg-slate-400 w-1/2 p-1 m-1 rounded-xl border border-gray-900' onClick={()=>{toggleUserData()}}>
             Данные пользователя
           </button>
       </div>

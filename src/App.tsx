@@ -3,6 +3,7 @@ import Autentification from './components/Autentification';
 import History from './components/History';
 import Input from './components/Input';
 import Messages from './components/Messages';
+import UserData from './components/UserData';
 
 const App = () => {
 
@@ -41,6 +42,12 @@ const App = () => {
     setShowHitory(!showHistory)
   }
 
+  const [showUserData,setShowUserData] = useState(false)
+
+  const toggleUserData = () => {
+    setShowUserData(!showUserData)
+  }
+
   return(
     <div className='absolute left-1/3 right-1/3 top-4 bottom-4 rounded-xl bg-slate-300'>
       {toggleAutorisation 
@@ -49,9 +56,11 @@ const App = () => {
       :
       <>
         <Messages messages={messages}></Messages>
-        <Input jwt={jwtToken} id={id} addMessage={addMessage} toggleHistory={toggleHistory}></Input>
+        <Input jwt={jwtToken} id={id} addMessage={addMessage} toggleHistory={toggleHistory} toggleUserData={toggleUserData}></Input>
         {
           showHistory&&<History id={id} jwt={jwtToken}></History>
+        }{
+          showUserData&&<UserData jwt={jwtToken} toggle={toggleUserData}></UserData>
         }
       </>
       }
