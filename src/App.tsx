@@ -1,26 +1,14 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {useState} from 'react'
+import Input from './components/Input';
+import Massages from './components/Massages';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+const App = () => {
+  return(
+    <div className='absolute left-1/3 right-1/3 top-4 bottom-4 rounded-xl bg-slate-300'>
+      <Massages></Massages>
+      <Input></Input>
     </div>
-  );
+  )
 }
 
 export default App;
