@@ -33,8 +33,8 @@ const History = ({id,jwt}:IData) => {
 
  
   return(
+        
     <div className='bg-slate-600 absolute items-center justify-center flex opacity-70 top-0 bottom-0 left-0 right-0 z-10 rounded-xl'>
-        <button>Show</button>
         {
             messages && messages.map(mas => {
                 return <Message message={mas}></Message>

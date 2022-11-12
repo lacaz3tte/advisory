@@ -5,6 +5,12 @@ import Input from './components/Input';
 import Messages from './components/Messages';
 
 const App = () => {
+
+  const [toggleAutorisation,setToggleAutorisation] = useState(true)
+
+  const toggle = () => {
+    setToggleAutorisation(!toggleAutorisation)
+  }
   
   const [jwtToken,setJwtToken] = useState('')
 
@@ -37,11 +43,17 @@ const App = () => {
 
   return(
     <div className='absolute left-1/3 right-1/3 top-4 bottom-4 rounded-xl bg-slate-300'>
-      <Autentification update={updateToken} jwt={jwtToken} updateId={updateId}></Autentification> 
-      <Messages messages={messages}></Messages>
-      <Input jwt={jwtToken} id={id} addMessage={addMessage} toggleHistory={toggleHistory}></Input>
-      {
-        showHistory&&<History id={id} jwt={jwtToken}></History>
+      {toggleAutorisation 
+      ?
+      <Autentification update={updateToken} jwt={jwtToken} updateId={updateId} toggle={toggle}></Autentification> 
+      :
+      <>
+        <Messages messages={messages}></Messages>
+        <Input jwt={jwtToken} id={id} addMessage={addMessage} toggleHistory={toggleHistory}></Input>
+        {
+          showHistory&&<History id={id} jwt={jwtToken}></History>
+        }
+      </>
       }
     </div>
   )

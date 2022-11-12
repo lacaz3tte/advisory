@@ -1,13 +1,15 @@
 import {useState} from 'react'
+import { sha256 } from 'js-sha256';
 
 interface IData{
     update:(i:string)=>void,
     updateId:(i:number)=>void,
+    toggle:()=>void
     jwt:string
 }
 
 
-const Autentification = ({update,jwt,updateId}:IData) => {
+const Autentification = ({update,jwt,updateId,toggle}:IData) => {
 
     const [autorised,setAutorised] = useState(false)
 
@@ -22,8 +24,8 @@ const Autentification = ({update,jwt,updateId}:IData) => {
               },
             method:'POST',
             body: JSON.stringify({
-                "login": "greece", 
-                "password": "b5c1d80547506e4cccee483d180619711964323ce66b62e17a9567c0fdbb67d4"
+                "login": name, 
+                "password": sha256(password) //"b5c1d80547506e4cccee483d180619711964323ce66b62e17a9567c0fdbb67d4"
             })
         })
         .then(res=>res.text())
@@ -42,6 +44,7 @@ const Autentification = ({update,jwt,updateId}:IData) => {
         .then(res=> updateId((JSON.parse(res)).dialogId))
         })
         setAutorised(!autorised)
+        toggle()
     }
 
   return(<>
@@ -49,7 +52,7 @@ const Autentification = ({update,jwt,updateId}:IData) => {
             ?
             <></>
             :
-        <div className='bg-slate-600 absolute items-center justify-center flex opacity-70 top-0 bottom-0 left-0 right-0 z-10 rounded-xl'>
+        <div className=' absolute items-center justify-center flex opacity-70 top-0 bottom-0 left-0 right-0 z-10 rounded-xl'>
             <div className='h-80 w-96 bg-white rounded-xl justify-between items-center'>
                 <div className='m-5'>
                     <p className='m-3 mt-10'>Login:</p>

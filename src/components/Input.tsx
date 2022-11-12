@@ -14,6 +14,7 @@ const Input = ({jwt,addMessage,toggleHistory,id}:IData) => {
 
   const sendMassage = async() => {
     addMessage(text)
+    setText('')
     await fetch('https://hack.invest-open.ru/message/send', {
             headers: {
               'Content-Type': 'application/json',
