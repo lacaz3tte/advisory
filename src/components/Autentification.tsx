@@ -32,7 +32,22 @@ const Autentification = ({update,jwt,updateId,toggle}:IData) => {
         .then(res=>{
             update(JSON.parse(res).jwtToken)
             token = JSON.parse(res).jwtToken
-        }).then(()=>{
+        })
+        /* .then(()=>{
+            fetch('https://invest-hackathon.ru/api/check_token', {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer '+ token,
+                    'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Methods':' GET, POST, PATCH, PUT, DELETE, OPTIONS',
+                    'Access-Control-Allow-Headers':' Origin, Content-Type, X-Auth-Token'
+                  },
+                method:'GET'
+            })
+        .then(res=>res.text())
+        .then(res=> console.log('Otvet:'+ JSON.parse(res)))
+        }) */
+        .then(()=>{
             fetch('https://hack.invest-open.ru/chat/dialog', {
             headers: {
                 'Content-Type': 'application/json',
