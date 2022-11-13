@@ -48,7 +48,7 @@ const UserData = ({jwt,toggle}:IData) => {
 
  
   return(
-    <div className=' absolute items-center justify-center flex top-0 bottom-0 left-0 right-0 z-10 bg-white rounded-xl'>
+    <div className=' absolute items-center justify-center flex top-0 bottom-0 left-0 right-0 z-10  bg-white rounded-xl'>
         <div className='h-auto w-96 bg-slate-100 rounded-xl justify-between items-center '>
                 <div className='m-5 '>
                     <p className='m-3'>Icon:</p>

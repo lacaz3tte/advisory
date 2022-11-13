@@ -58,7 +58,7 @@ const App = () => {
         <Messages messages={messages}></Messages>
         <Input jwt={jwtToken} id={id} addMessage={addMessage} toggleHistory={toggleHistory} toggleUserData={toggleUserData}></Input>
         {
-          showHistory&&<History id={id} jwt={jwtToken}></History>
+          showHistory&&<History id={id} jwt={jwtToken} toggle={toggleHistory}></History>
         }{
           showUserData&&<UserData jwt={jwtToken} toggle={toggleUserData}></UserData>
         }
