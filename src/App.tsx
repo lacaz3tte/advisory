@@ -49,7 +49,7 @@ const App = () => {
   }
 
   return(
-    <div className='absolute left-1/3 right-1/3 top-4 bottom-4 rounded-xl bg-slate-300'>
+    <div className='absolute left-1/3 right-1/3 top-4 bottom-4 rounded-xl bg-slate-100'>
       {toggleAutorisation 
       ?
       <Autentification update={updateToken} jwt={jwtToken} updateId={updateId} toggle={toggle}></Autentification> 
